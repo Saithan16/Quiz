@@ -92,3 +92,9 @@ exports.update = function(req, res) {
 	);
 };
 
+exports.destroy = function(req, res) {
+	req.quiz.destroy().then( function() {
+		res.redirect('/quizes');
+	}).catch(function(error){next(error)});
+};
+
